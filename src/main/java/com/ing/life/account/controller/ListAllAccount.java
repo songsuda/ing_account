@@ -7,8 +7,6 @@ package com.ing.life.account.controller;
 import com.ing.life.account.model.Account;
 import com.ing.life.account.model.AccountRepository;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
