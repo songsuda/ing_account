@@ -39,8 +39,8 @@ public class ListAllAccount extends HttpServlet {
      * response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        
+        // TODO Auto-generated method stub        
+        logger.info("Start Fetch All Acclount in ListAllAccount");
         AccountRepository accountRepo = new AccountRepository();
         List<Account> allAccount = accountRepo.getAllAccount();
         request.setAttribute("allAccount", allAccount);
