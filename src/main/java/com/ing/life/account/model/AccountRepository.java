@@ -7,6 +7,7 @@ package com.ing.life.account.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -14,6 +15,8 @@ import java.util.List;
  */
 public class AccountRepository {
 
+    private static Logger logger = Logger.getLogger(AccountRepository.class);
+    
     private HashMap<String, Account> repository;
 
     public AccountRepository() {
@@ -41,6 +44,7 @@ public class AccountRepository {
     }
 
     public List<Account> getAllAccount() {
+        logger.info("this is a sample log message.");
         return new ArrayList<Account>(repository.values());
     }
 }
