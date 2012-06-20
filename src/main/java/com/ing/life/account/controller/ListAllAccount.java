@@ -5,9 +5,12 @@
 package com.ing.life.account.controller;
 
 import com.ing.life.account.model.Account;
+import com.ing.life.account.model.AccountRDBMS;
 import com.ing.life.account.model.AccountRepository;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,6 +45,14 @@ public class ListAllAccount extends HttpServlet {
         // TODO Auto-generated method stub        
         logger.info("Start Fetch All Acclount in ListAllAccount");
         AccountRepository accountRepo = new AccountRepository();
+        AccountRDBMS accountRDBMS = new AccountRDBMS();
+        
+        try {
+            accountRDBMS.getAllAccount();
+        } catch (SQLException ex) {
+            logger.error(ex.toString());
+        }
+        
         List<Account> allAccount = accountRepo.getAllAccount();
         request.setAttribute("allAccount", allAccount);
         logger.debug("Account Size: "+allAccount.size());

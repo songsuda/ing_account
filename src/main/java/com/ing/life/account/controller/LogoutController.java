@@ -4,8 +4,6 @@
  */
 package com.ing.life.account.controller;
 
-import com.ing.life.account.model.User;
-import com.ing.life.account.model.UserRepository;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -15,15 +13,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.apache.log4j.Logger;
 
 /**
  *
  * @author roofimon
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
-public class LoginController extends HttpServlet {
-         private static Logger logger = Logger.getLogger(LoginController.class);
+@WebServlet(name = "LogoutController", urlPatterns = {"/LogoutController"})
+public class LogoutController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -37,17 +33,11 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nextJSP = "/mainPanel.jsp";
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        logger.debug("Form login information: "+username+"..."+password);    
-        UserRepository userRepository = new UserRepository();
-        User loggingInUser = userRepository.getUserByUsername(username);
-        
-        if(loggingInUser==null) nextJSP = "/invalid.jsp";    
-        
+        response.setContentType("text/html;charset=UTF-8");
+              
+        String nextJSP = "/index.jsp";
         HttpSession session = request.getSession();
-        session.setAttribute("currentUser", loggingInUser);
+        session.invalidate();
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
     }
@@ -65,7 +55,6 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        logger.info("DepositController..doGet");
         processRequest(request, response);
     }
 
@@ -81,7 +70,6 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        logger.info("DepositController..doPost");
         processRequest(request, response);
     }
 
