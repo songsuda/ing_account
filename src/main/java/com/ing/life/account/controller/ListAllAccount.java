@@ -46,14 +46,14 @@ public class ListAllAccount extends HttpServlet {
         logger.info("Start Fetch All Acclount in ListAllAccount");
         AccountRepository accountRepo = new AccountRepository();
         AccountRDBMS accountRDBMS = new AccountRDBMS();
-        
+        List<Account> allAccount = null;
         try {
-            accountRDBMS.getAllAccount();
+            allAccount = accountRDBMS.getAllAccount();
         } catch (SQLException ex) {
             logger.error(ex.toString());
         }
         
-        List<Account> allAccount = accountRepo.getAllAccount();
+        // = accountRepo.getAllAccount();
         request.setAttribute("allAccount", allAccount);
         logger.debug("Account Size: "+allAccount.size());
         String nextJSP = "/listAllAccount.jsp";

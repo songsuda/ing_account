@@ -88,26 +88,16 @@
                 <div class="span9">
 
 
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Account Code</th>
-                                <th>Account Name</th>
-                                <th>Account Balance</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach var="account" items="${allAccount}">  
-                                <tr>
-                                    <td>1</td>
-                                    <td><a href="./DepositController?code=${account.code}">${account.code}</a></td>
-                                    <td>${account.name}</td>
-                                    <td align="right"><fmt:formatNumber type="number" maxFractionDigits="2"  value="${account.balance}" /></td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
+
+                    <h1>Bootstrap starter template</h1>
+                    <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+                    <form class="well" action="DepositController" method="POST">
+                        <input name="code" type="hidden" value="<c:out value="${requestScope.code}"/>" />
+                        <label>Amount</label>
+                        <input name="amount" type="text" class="span3" placeholder="Type something…">
+                        <span class="help-block">Example block-level help text here.</span>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
 
 
 

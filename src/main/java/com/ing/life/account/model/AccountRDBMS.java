@@ -6,6 +6,8 @@ package com.ing.life.account.model;
 
 import java.math.BigDecimal;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.log4j.Logger;
 
 /**
@@ -26,20 +28,28 @@ public class AccountRDBMS {
         }
     }
 
-    public void getAllAccount() throws SQLException {
-
+    public List<Account> getAllAccount() throws SQLException {
+        List<Account> allAccount = new ArrayList<Account>();
         Statement stmt = null;
         String query = "select code, name, balance from account";
         try {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
+            Account account;
             while (rs.next()) {
+                account = new Account();
                 String code = rs.getString("code");
                 String name = rs.getString("name");
                 BigDecimal price = rs.getBigDecimal("balance");
+                account.setCode(code);
+                account.setName(name);
+                account.setBalance(new Double(price.doubleValue()));
+                allAccount.add(account);
                 logger.debug(code + "\t" + name
                         + "\t" + price + "\t");
+                
             }
+
         } catch (SQLException e) {
             logger.error(e.toString());
         } finally {
@@ -47,5 +57,6 @@ public class AccountRDBMS {
                 stmt.close();
             }
         }
+        return allAccount;
     }
 }

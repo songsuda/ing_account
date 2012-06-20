@@ -21,8 +21,8 @@ public class AccountRepository {
 
     public AccountRepository() {
         repository = new HashMap<String, Account>();
-        Account firstAccount = new Account("111222333444", "Twin Panichsombat", 500.00);
-        Account secondAccount = new Account("555666777888", "Twin Panichsombat", 500.00);
+        Account firstAccount = new Account("1122334455", "Twin Panichsombat", 500.00);
+        Account secondAccount = new Account("6677889900", "Twin Panichsombat", 500.00);
         repository.put(firstAccount.getCode(), firstAccount);
         repository.put(secondAccount.getCode(), secondAccount);
     }

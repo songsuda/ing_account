@@ -14,6 +14,11 @@ public class Account {
     String name;
     Double balance;
 
+    
+    public Account(){
+        
+    }
+    
     public Account(String accountId, String accountName, Double balance) {
         super();
         this.code = accountId;
@@ -43,5 +48,9 @@ public class Account {
 
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+    
+    public void deposit(Double amount){
+        this.balance = this.balance+amount;
     }
 }
