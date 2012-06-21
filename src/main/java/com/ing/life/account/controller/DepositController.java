@@ -5,6 +5,7 @@
 package com.ing.life.account.controller;
 
 import com.ing.life.account.model.Account;
+import com.ing.life.account.model.AccountHibernate;
 import com.ing.life.account.model.AccountRepository;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,11 +41,15 @@ public class DepositController extends HttpServlet {
         String code = request.getParameter("code");
         String amountString = request.getParameter("amount");
         Double amount = Double.valueOf(amountString);
-        AccountRepository accountRepository = new AccountRepository();
-        Account account = accountRepository.getAccountById(code);
+        //AccountRepository accountRepository = new AccountRepository();
+        AccountHibernate accountHibernate = new AccountHibernate();
+        
+        Account account = accountHibernate.getAccountByCode(code);//accountRepository.getAccountById(code);
         logger.debug("Account: "+account.getCode()+" Current Balance:"+account.getBalance().toString());
         account.deposit(amount);
         logger.debug("Account: "+account.getCode()+" Current Balance:"+account.getBalance().toString());
+        
+        accountHibernate.updateAccount(account);
         String nextJSP = "/accountInfo.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);

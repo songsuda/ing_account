@@ -11,5 +11,9 @@
         <property name="balance" type="double">
             <column name="balance"  not-null="true"  />
         </property>
+        <set name="transactionHistory" cascade="all" sort="natural">
+         <key column="account_code"/>
+         <one-to-many class="com.ing.life.account.model.TransactionHistory"/>
+      </set>
     </class>   
 </hibernate-mapping>

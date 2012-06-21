@@ -5,7 +5,8 @@
 package com.ing.life.account.controller;
 
 import com.ing.life.account.model.Account;
-import com.ing.life.account.model.AccountRDBMS;
+import com.ing.life.account.model.AccountHibernate;
+import com.ing.life.account.model.AccountJdbc;
 import com.ing.life.account.model.AccountRepository;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -45,14 +46,15 @@ public class ListAllAccount extends HttpServlet {
         // TODO Auto-generated method stub        
         logger.info("Start Fetch All Acclount in ListAllAccount");
         AccountRepository accountRepo = new AccountRepository();
-        AccountRDBMS accountRDBMS = new AccountRDBMS();
+        //AccountJdbc accountRDBMS = new AccountJdbc();
+        AccountHibernate accountHibernate = new AccountHibernate();
         List<Account> allAccount = null;
-        try {
+        /*try {
             allAccount = accountRDBMS.getAllAccount();
         } catch (SQLException ex) {
             logger.error(ex.toString());
-        }
-        
+        }*/
+        allAccount = accountHibernate.getAllAccount();
         // = accountRepo.getAllAccount();
         request.setAttribute("allAccount", allAccount);
         logger.debug("Account Size: "+allAccount.size());

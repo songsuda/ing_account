@@ -14,12 +14,12 @@ import org.apache.log4j.Logger;
  *
  * @author roofimon
  */
-public class AccountRDBMS {
+public class AccountJdbc {
 
-    private static Logger logger = Logger.getLogger(AccountRDBMS.class);
+    private static Logger logger = Logger.getLogger(AccountJdbc.class);
     Connection conn = null;
 
-    public AccountRDBMS() {
+    public AccountJdbc() {
         try {
             Class.forName("org.h2.Driver");
             conn = DriverManager.getConnection("jdbc:h2:tcp://192.168.3.1:9101/Users/roofimon/Development/h2/database/test_ing", "sa", "");
