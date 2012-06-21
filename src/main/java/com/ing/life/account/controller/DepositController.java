@@ -4,11 +4,15 @@
  */
 package com.ing.life.account.controller;
 
+import com.ing.life.account.enumerates.TransactionType;
 import com.ing.life.account.model.Account;
-import com.ing.life.account.model.AccountHibernate;
+import com.ing.life.account.service.impl.AccountHibernateImpl;
 import com.ing.life.account.model.AccountRepository;
+import com.ing.life.account.model.TransactionHistory;
+import com.ing.life.account.service.AccountService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,15 +45,16 @@ public class DepositController extends HttpServlet {
         String code = request.getParameter("code");
         String amountString = request.getParameter("amount");
         Double amount = Double.valueOf(amountString);
-        //AccountRepository accountRepository = new AccountRepository();
-        AccountHibernate accountHibernate = new AccountHibernate();
         
-        Account account = accountHibernate.getAccountByCode(code);//accountRepository.getAccountById(code);
+        AccountService accountService = new AccountHibernateImpl();
+        Account account = accountService.getAccountByCode(code);
+        TransactionHistory newTransaction = new TransactionHistory(new Date(), amount, TransactionType.DEPOSIT);
+        account.addTransactionHistory(newTransaction);
         logger.debug("Account: "+account.getCode()+" Current Balance:"+account.getBalance().toString());
         account.deposit(amount);
         logger.debug("Account: "+account.getCode()+" Current Balance:"+account.getBalance().toString());
         
-        accountHibernate.updateAccount(account);
+        accountService.updateAccount(account);
         String nextJSP = "/accountInfo.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
@@ -68,9 +73,15 @@ public class DepositController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         AccountService accountService = new AccountHibernateImpl();
         //processRequest(request, response);
         String code = request.getParameter("code");
+        Account account = accountService.getAccountByCode(code);
+        
+        logger.debug("Target Account:"+account.getTransactionHistory().size());
+        
         request.setAttribute("code", code);
+        request.setAttribute("account", account);
         String nextJSP = "/deposit.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);        

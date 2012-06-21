@@ -4,6 +4,7 @@
  */
 package com.ing.life.account.util;
 
+import com.ing.life.account.enumerates.TransactionType;
 import com.ing.life.account.model.Account;
 import com.ing.life.account.model.TransactionHistory;
 import java.text.ParseException;
@@ -32,15 +33,11 @@ public class App {
         newAccount.setName("roofimon");
         newAccount.setBalance(new Double(100));
         
-        TransactionHistory firstTransaction = new TransactionHistory(new SimpleDateFormat("MM/dd/yy").parse("05/18/12"), new Double(10), "001");
-        TransactionHistory secondTransaction = new TransactionHistory(new Date(), new Double(5), "002");
-        TreeSet history = new TreeSet();
-        history.add(firstTransaction);
-        history.add(secondTransaction);
-        
-        newAccount.setTransactionHistory(history);
-        //newAccount.getTransactionHistory().add(firstTransaction);
-        //newAccount.getTransactionHistory().add(secondTransaction);
+        TransactionHistory firstTransaction = new TransactionHistory(new SimpleDateFormat("MM/dd/yy").parse("05/18/12"), new Double(10), TransactionType.DEPOSIT);
+        TransactionHistory secondTransaction = new TransactionHistory(new Date(), new Double(5), TransactionType.TRANSFER);
+       
+        newAccount.getTransactionHistory().add(firstTransaction);
+        newAccount.getTransactionHistory().add(secondTransaction);
         
         System.out.println("Before Save: "+newAccount.getTransactionHistory().size());
 

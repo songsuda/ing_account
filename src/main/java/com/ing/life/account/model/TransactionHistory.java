@@ -4,6 +4,7 @@
  */
 package com.ing.life.account.model;
 
+import com.ing.life.account.enumerates.TransactionType;
 import java.util.Date;
 import org.apache.log4j.Logger;
 
@@ -16,9 +17,13 @@ public class TransactionHistory implements Comparable<TransactionHistory>{
     private Long transactionNumber;
     private Date transactionDate;
     private Double amount;
-    private String code;
+    private TransactionType code;
 
-    public TransactionHistory(Date transactionDate,Double amount,String code) {
+    public TransactionHistory(){
+        
+    }
+    
+    public TransactionHistory(Date transactionDate,Double amount,TransactionType code) {
         this.transactionDate = transactionDate;
         this.amount = amount;
         this.code = code;
@@ -55,14 +60,14 @@ public class TransactionHistory implements Comparable<TransactionHistory>{
     /**
      * @return the code
      */
-    public String getCode() {
+    public TransactionType getCode() {
         return code;
     }
 
     /**
      * @param code the code to set
      */
-    public void setCode(String code) {
+    public void setCode(TransactionType code) {
         this.code = code;
     }
     

@@ -89,8 +89,8 @@
 
 
 
-                    <h1>Bootstrap starter template</h1>
-                    <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+                    <h1>${account.code}:${account.name}</h1>
+                    <p>Current Balance: ${account.balance}</p>
                     <form class="well" action="DepositController" method="POST">
                         <input name="code" type="hidden" value="<c:out value="${requestScope.code}"/>" />
                         <label>Amount</label>
@@ -99,7 +99,26 @@
                         <button type="submit" class="btn">Submit</button>
                     </form>
 
-
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Transaction Date:Time</th>
+                                <th>Transaction Type</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="history" items="${account.transactionHistory}">  
+                                <tr>
+                                    <td>#</td>
+                                    <td>${history.transactionDate}</td>
+                                    <td>${history.code}</td>
+                                    <td align="right"><fmt:formatNumber type="number" maxFractionDigits="2"  value="${history.amount}" /></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
 
                 </div><!--/span-->
             </div><!--/row-->

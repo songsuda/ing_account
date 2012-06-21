@@ -5,13 +5,10 @@
 package com.ing.life.account.controller;
 
 import com.ing.life.account.model.Account;
-import com.ing.life.account.model.AccountHibernate;
-import com.ing.life.account.model.AccountJdbc;
-import com.ing.life.account.model.AccountRepository;
+import com.ing.life.account.service.impl.AccountHibernateImpl;
+import com.ing.life.account.service.AccountService;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,17 +42,9 @@ public class ListAllAccount extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub        
         logger.info("Start Fetch All Acclount in ListAllAccount");
-        AccountRepository accountRepo = new AccountRepository();
-        //AccountJdbc accountRDBMS = new AccountJdbc();
-        AccountHibernate accountHibernate = new AccountHibernate();
-        List<Account> allAccount = null;
-        /*try {
-            allAccount = accountRDBMS.getAllAccount();
-        } catch (SQLException ex) {
-            logger.error(ex.toString());
-        }*/
-        allAccount = accountHibernate.getAllAccount();
-        // = accountRepo.getAllAccount();
+        AccountService accountService = new AccountHibernateImpl();
+        List<Account> allAccount = accountService.getAllAccount();
+        
         request.setAttribute("allAccount", allAccount);
         logger.debug("Account Size: "+allAccount.size());
         String nextJSP = "/listAllAccount.jsp";

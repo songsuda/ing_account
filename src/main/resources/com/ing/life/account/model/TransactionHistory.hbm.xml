@@ -10,9 +10,12 @@
         </property>
         <property name="amount" type="double">
             <column name="amount" not-null="true" />
+        </property>            
+        <property name="code">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.ing.life.account.enumerates.TransactionType</param>
+            </type>
         </property>
-        <property name="code" type="string">
-            <column name="code" length="50" not-null="true" />
-        </property>        
+
     </class>   
 </hibernate-mapping>

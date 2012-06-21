@@ -38,6 +38,7 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nextJSP = "/mainPanel.jsp";
+        
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         logger.debug("Form login information: "+username+"..."+password);    
