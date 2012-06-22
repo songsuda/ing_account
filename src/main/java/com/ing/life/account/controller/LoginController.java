@@ -5,7 +5,7 @@
 package com.ing.life.account.controller;
 
 import com.ing.life.account.model.User;
-import com.ing.life.account.model.UserRepository;
+import com.ing.life.account.service.impl.UserRepository;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;

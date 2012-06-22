@@ -2,8 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ing.life.account.model;
+package com.ing.life.account.service.impl;
 
+import com.ing.life.account.model.Account;
+import com.ing.life.account.service.AccountService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +15,7 @@ import org.apache.log4j.Logger;
  *
  * @author roofimon
  */
-public class AccountRepository {
+public class AccountRepository implements AccountService {
 
     private static Logger logger = Logger.getLogger(AccountRepository.class);
     
@@ -32,19 +34,32 @@ public class AccountRepository {
     }
 
     public void addNewAccount(Account newAccount) {
-        repository.put(newAccount.code, newAccount);
+        repository.put(newAccount.getCode(), newAccount);
     }
 
+    @Override
     public void updateAccount(Account targetAccount) {
-        repository.put(targetAccount.code, targetAccount);
+        repository.put(targetAccount.getCode(), targetAccount);
     }
 
+    @Override
     public void removeAccount(String accountId) {
         repository.remove(accountId);
     }
 
+    @Override
     public List<Account> getAllAccount() {
         logger.info("this is a sample log message.");
         return new ArrayList<Account>(repository.values());
+    }
+
+    @Override
+    public void createAccount(Account newAccount) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Account getAccountByCode(String code) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

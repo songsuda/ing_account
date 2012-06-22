@@ -2,9 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ing.life.account.model;
+package com.ing.life.account.service.impl;
 
 
+import com.ing.life.account.model.User;
 import java.util.HashMap;
 import org.apache.log4j.Logger;
 

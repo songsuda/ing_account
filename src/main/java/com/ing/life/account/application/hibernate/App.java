@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ing.life.account.util;
+package com.ing.life.account.application.hibernate;
 
 import com.ing.life.account.enumerates.TransactionType;
 import com.ing.life.account.model.Account;
 import com.ing.life.account.model.TransactionHistory;
+import com.ing.life.account.util.HibernateUtil;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;

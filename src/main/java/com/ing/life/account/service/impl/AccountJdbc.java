@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ing.life.account.model;
+package com.ing.life.account.service.impl;
 
+import com.ing.life.account.model.Account;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;

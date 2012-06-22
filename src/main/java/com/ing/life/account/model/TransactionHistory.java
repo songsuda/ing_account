@@ -70,6 +70,21 @@ public class TransactionHistory implements Comparable<TransactionHistory>{
     public void setCode(TransactionType code) {
         this.code = code;
     }
+
+    /**
+     * @return the transactionNumber
+     */
+    public Long getTransactionNumber() {
+        
+        return transactionNumber;
+    }
+
+    /**
+     * @param transactionNumber the transactionNumber to set
+     */
+    public void setTransactionNumber(Long transactionNumber) {
+        this.transactionNumber = transactionNumber;
+    }    
     
     public int compareTo(TransactionHistory that){
       final int BEFORE = -1;
@@ -93,18 +108,5 @@ public class TransactionHistory implements Comparable<TransactionHistory>{
       }
    }
 
-    /**
-     * @return the transactionNumber
-     */
-    public Long getTransactionNumber() {
-        
-        return transactionNumber;
-    }
 
-    /**
-     * @param transactionNumber the transactionNumber to set
-     */
-    public void setTransactionNumber(Long transactionNumber) {
-        this.transactionNumber = transactionNumber;
-    }
 }
