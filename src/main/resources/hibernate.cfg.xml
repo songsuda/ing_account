@@ -11,6 +11,7 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         <property name="show_sql">true</property>
         <mapping resource="com/ing/life/account/model/Account.hbm.xml"></mapping>
         <mapping resource="com/ing/life/account/model/User.hbm.xml"></mapping>

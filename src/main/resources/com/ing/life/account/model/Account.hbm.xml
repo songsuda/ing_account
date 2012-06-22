@@ -2,6 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="com.ing.life.account.model.Account" table="ACCOUNT">
+        <cache usage="read-write"/>
         <id name="code" type="string">
             <column name="code" />
         </id>
