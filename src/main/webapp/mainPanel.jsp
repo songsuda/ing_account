@@ -65,7 +65,7 @@
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="LogoutController">Logout</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -78,10 +78,10 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
+              
               <li><a href="./ListAllAccount">All Accounts</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li><a href="#">Create New Account</a></li>
+              <li><a href="#">Search For Account</a></li>
               <!--li class="nav-header">Sidebar</li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>

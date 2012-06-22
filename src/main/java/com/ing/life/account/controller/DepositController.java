@@ -45,14 +45,17 @@ public class DepositController extends HttpServlet {
         Double amount = Double.valueOf(amountString);
         
         AccountService accountService = new AccountHibernateImpl();
+        
         Account account = accountService.getAccountByCode(code);
         TransactionHistory newTransaction = new TransactionHistory(new Date(), amount, TransactionType.DEPOSIT);
         account.addTransactionHistory(newTransaction);
+        
         logger.debug("Account: "+account.getCode()+" Current Balance:"+account.getBalance().toString());
         account.deposit(amount);
         logger.debug("Account: "+account.getCode()+" Current Balance:"+account.getBalance().toString());
         
         accountService.updateAccount(account);
+        request.setAttribute("account", account);
         String nextJSP = "/accountInfo.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);

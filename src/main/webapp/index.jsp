@@ -64,10 +64,10 @@
             <form class="well" action="LoginController" method="POST">
                 <label>Username</label>
                 <input name="username" type="text" class="span3" placeholder="Type something…">
-                <span class="help-block">Example block-level help text here.</span>
+                <span class="help-block"></span>
                 <label>Password</label>
                 <input name ="password" type="text" class="span3" placeholder="Type something…">
-                <span class="help-block">Example block-level help text here.</span>
+                <span class="help-block"></span>
                 <button type="submit" class="btn">Submit</button>
             </form>
         </div> <!-- /container -->

@@ -49,7 +49,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Project name</a>
+                    <a class="brand" href="#">ING Account Management</a>
                     <div class="btn-group pull-right">
                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="icon-user"></i> 
@@ -64,7 +64,7 @@
                     </div>
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
+                            <li class="active"><a href="mainPanel.jsp">Home</a></li>
                             <li><a href="#about">About</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
@@ -94,8 +94,8 @@
                     <form class="well" action="DepositController" method="POST">
                         <input name="code" type="hidden" value="<c:out value="${requestScope.code}"/>" />
                         <label>Amount</label>
-                        <input name="amount" type="text" class="span3" placeholder="Type something…">
-                        <span class="help-block">Example block-level help text here.</span>
+                        <input name="amount" type="text" class="span3" placeholder="0">
+                        <span class="help-block">Amount money to deposit</span>
                         <button type="submit" class="btn">Submit</button>
                     </form>
 
