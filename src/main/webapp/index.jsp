@@ -66,7 +66,7 @@
                 <input name="username" type="text" class="span3" placeholder="Type something…">
                 <span class="help-block"></span>
                 <label>Password</label>
-                <input name ="password" type="text" class="span3" placeholder="Type something…">
+                <input name ="password" type="password" class="span3" placeholder="Type something…">
                 <span class="help-block"></span>
                 <button type="submit" class="btn">Submit</button>
             </form>
