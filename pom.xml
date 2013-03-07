@@ -27,6 +27,12 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>3.3.2.GA</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>3.2.0.RELEASE</version>
+        </dependency>
+
         <!--dependency>
             <groupId>javax.sql</groupId>
             <artifactId>jdbc-stdext</artifactId>
@@ -37,6 +43,12 @@
             <artifactId>jta</artifactId>
             <version>1.1</version>
         </dependency>
+        <!--dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency-->
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>ejb3-persistence</artifactId>
@@ -57,6 +69,11 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>3.2.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -145,12 +162,5 @@
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <repository>
-            <url>http://repo1.maven.org/maven2/</url>
-            <id>hibernate-support</id>
-            <layout>default</layout>
-            <name>Repository for library Library[hibernate-support]</name>
-        </repository>
-    </repositories>
+
 </project>
