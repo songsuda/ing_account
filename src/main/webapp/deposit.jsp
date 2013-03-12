@@ -8,6 +8,7 @@
     <p>Current Balance: ${account.balance}</p>
     <form class="well" action="DepositController" method="POST">
         <input name="code" type="hidden" value="<c:out value="${requestScope.code}"/>" />
+        <input name="command_type" type="hidden" value="<c:out value="${requestScope.command_type}"/>" />
         <label>Amount</label>
         <input name="amount" type="text" class="span3" placeholder="0">
         <span class="help-block">Amount money to deposit</span>

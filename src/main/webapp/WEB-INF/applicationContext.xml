@@ -4,5 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="accountService" class="com.ing.life.account.service.impl.AccountHibernateImpl" />
+    <bean id="accountService" class="com.tmn.account.service.impl.AccountHibernateImpl" />
+    <bean id="usersService" class="com.tmn.account.service.impl.UserHibernateImpl" />
+    <bean id="transactionHistoryService" class="com.tmn.account.service.impl.TransactionHistoryHibernateImpl" />
 </beans>
